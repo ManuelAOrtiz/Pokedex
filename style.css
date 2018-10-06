@@ -1,54 +1,78 @@
 *{
-	margin:0 0;
+	margin:0;
 }
 .wrapper{
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr .4fr;
+	width: 95%;
+	margin: 0 auto;
+	margin-top: 2%;
+	grid-column-gap: 2%;
 }
 #header{
-	height: 20vh;
 	text-align: center;
+	position: relative;
+}
+#blastoiseImage{
+	background-image: url('images/blastoise-9.png');
+}
+#arcanineImage{
+	background-image: url('images/Arcanine.png');
+}
+#kadabraImage{
+	background-image: url('images/Kadabra.png');
+}
+.userPokemon{
+	display: grid;
+	grid-template-rows: 7fr .1fr;
+}
+.pokemonImage{
+	background-size: 100% 100%;
+}
+.pokemonName{
+	font-weight: bold;
+	font-size: 1.7em;
 }
 #pokemonList{
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
-	width: 80%;
+	width: 90%;
 	margin:0 auto;
 	font-weight: bold;
 }
 #pokedexWrapper{
 	background-image: url("images/PokeDex.png");
 	background-size: 100% 100%;
-	height: 49vh;
-	width: 49vw;
+	height: 51vh;
+	width: 51vw;
 	margin: 0 auto;
 	position:relative;
 }
 #up{
 	position: absolute;
-	margin-top: 58.5%;
-	margin-left: 35.7%;
+	top: 72%;
+	left: 35.7%;
 	width: 5%;
 	height: 5.5%;
 }
 #down{
 	position: absolute;
-	margin-top: 67%;
-	margin-left: 35.7%;
+	top: 83%;
+	left: 35.7%;
 	width: 5%;
 	height: 6%;
 }
 #left{
 	position: absolute;
-	margin-top: 63%;
-	margin-left: 32%;
+	top: 78%;
+	left: 32%;
 	width: 5.5%;
 	height: 5.5%;
 }
 #right{
 	position: absolute;
-	margin-top: 63%;
-	margin-left: 40%;
+	top: 78%;
+	left: 39.5%;
 	width: 5%;
 	height: 5.5%;
 }
@@ -56,49 +80,218 @@
 	position: absolute;
 	height: 28%;
 	width: 30%;
-	margin-top: 25%;
-	margin-left: 10%;
-	background-image: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/9.png');
+	top: 31%;
+	left: 10%;
 	background-size: 100% 100%;
 }
 #textDisplay{
 	position: absolute;
-	height: 14.5%;
+	height: 15%;
 	width: 30%;
-	margin-left: 60.7%;
-	margin-top: 27%;
+	left: 60.7%;
+	top: 33.4%;
 	text-align: center;
 	font-weight: bold;
 	color: white;
 }
-#pokemonName{
-	margin-top: 5%;
-}
 #buttonName{
 	position: absolute;
 	height: 7.5%;
-	width: 7.5%;
-	margin-left: 60.7%;
-	margin-top: 27%;
+	width: 7%;
+	left: 60%;
+	top: 52.5%;
+	font-size: .7em;
+	font-weight: bold;
+	text-align: center;
+}
+#buttonName p{
+	margin-top: 15%;
 }
 #buttonType{
 	position: absolute;
-	height: 7.5%;
-	width: 7.5%;
-	margin-left: 60.7%;
-	margin-top: 27%;
+	height: 6.5%;
+	width: 6.3%;
+	left: 66.8%;
+	top: 52.5%;
+	font-size: .7em;
+	font-weight: bold;
+	text-align: center;
+}
+#buttonType p{
+	margin-top: 15%;
 }
 #buttonStats{
 	position: absolute;
-	height: 7.5%;
-	width: 7.5%;
-	margin-left: 60.7%;
-	margin-top: 27%;
+	height: 6.5%;
+	width: 6.3%;
+	left: 73.1%;
+	top: 52.5%;
+	font-size: .7em;
+	text-align: center;
+	font-weight: bold;
+}
+#buttonStats p{
+	margin-top: 15%;
 }
 #buttonAbilities{
 	position: absolute;
-	height: 7.5%;
-	width: 7.5%;
-	margin-left: 60.7%;
-	margin-top: 27%;
+	height: 6.5%;
+	width: 6.3%;
+	left: 79.8%;
+	top: 52.5%;
+	font-size: .49em;
+	font-weight: bolder;
+	text-align: center;
 }
+#buttonAbilities p{
+	margin-top: 20%;
+}
+.searchFooter{
+	width: 90%;
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+	display: grid; 
+	grid-template-columns:1fr 1fr .5fr 1fr;
+}
+#statsWrapper{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: 5%;
+	text-align: center;
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 2%;
+}
+#generalStats{
+	border-radius: 5px;
+	font-weight: bold;
+	background-color: #22C4EA;
+	box-shadow: 1px 3px 2px #1eb0d2, inset 0px 0px 2px white  ;
+	position: relative;
+}
+#generalStats:active{
+	background-color: #1eb0d2; 
+	box-shadow: 1px 3px 2px white, inset 0px 0px 2px #1eb0d2  ;
+	transform: translate(0, 2px); 
+	transition: all .1s ease-in-out
+}
+#physicalStats{
+	border-radius: 5px;
+	font-weight: bold;
+	background-color: #22C4EA;
+	box-shadow: 1px 3px 2px #1eb0d2, inset 0px 0px 2px white  ;
+	position: relative;
+}
+#physicalStats:active{
+	background-color: #1eb0d2; 
+	box-shadow: 1px 3px 2px white, inset 0px 0px 2px #1eb0d2  ;
+	transform: translate(0, 2px); 
+	transition: all .1s ease-in-out
+}
+#abilities{
+	border-radius: 5px;
+	font-weight: bold;
+	background-color: #22C4EA;
+	box-shadow: 1px 3px 2px #1eb0d2, inset 0px 0px 2px white  ;
+	position: relative;
+}
+#abilities:active{
+	background-color: #1eb0d2; 
+	box-shadow: 1px 3px 2px white, inset 0px 0px 2px #1eb0d2  ;
+	transform: translate(0, 2px); 
+	transition: all .1s ease-in-out
+}
+#nurseJoy{
+	background-image: url('images/Nurse-Joy.png');
+	background-size: 100% 100%;
+}
+#search{
+	grid-column: 2/3;
+}
+#submit{
+	margin-top: 15%;
+	height: 50%;
+	width: 50%;
+}
+/*pokedex button color 22C4EA*/
+
+/*.carousel.carousel-slider {
+  top: 0;
+  left: 0;
+}
+
+.carousel.carousel-slider .carousel-fixed-item {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  z-index: 1;
+}
+
+.carousel.carousel-slider .carousel-fixed-item.with-indicators {
+  bottom: 68px;
+}
+
+.carousel.carousel-slider .carousel-item {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.carousel.carousel-slider .carousel-item h2 {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+.carousel.carousel-slider .carousel-item p {
+  font-size: 15px;
+}
+
+.carousel .carousel-item {
+  visibility: hidden;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.carousel .carousel-item > img {
+  width: 100%;
+}
+
+.carousel .indicators {
+  position: absolute;
+  text-align: center;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+}
+
+.carousel .indicators .indicator-item {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  height: 8px;
+  width: 8px;
+  margin: 24px 4px;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-transition: background-color .3s;
+  transition: background-color .3s;
+  border-radius: 50%;
+}
+
+.carousel .indicators .indicator-item.active {
+  background-color: #fff;
+}
+
+.carousel.scrolling .carousel-item .materialboxed,
+.carousel .carousel-item:not(.active) .materialboxed {
+  pointer-events: none;
+}*/
