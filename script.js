@@ -5,41 +5,54 @@ class Pokemon{
 		this.attack;
 		this.defense;
 		this.abilities = [];
+		this.sprites = [];
 		this.getPokemon(ajaxNumber);
 	}
 	getPokemon(ajaxNumber){
 		var that = this
 		$.ajax({url: "https://fizal.me/pokeapi/api/"+ajaxNumber+".json",
 		success: function(result){
+					console.log(result)
 					that.hp = that.getHP(result)
 					that.attack = that.getAttack(result);
 					that.defense = that.getDefense(result);
 					that.abilities = that.getAbilities(result);
 					that.name = that.getName(result);
+					that.sprites = that.getImage(result);
 				}	
 		})
 	}
+	getImage(result){
+		imageArray = [];
+		imageArray.push(result.sprites.back_default);
+		imageArray.push(result.sprites.front_default);
+		return imageArray;
+	}
 	getName(result){
 		//sends a name
-		return ajax.name
+		return result.name
 	}
 	getHP(result){
-		return ajax.stats[5].base_stat
+		return result.stats[5].base_stat
 	}
 	getAttack(result){
-		return ajax.stats[4].base_stat
+		return result.stats[4].base_stat
 	}
 	getDefense(result){
-		return ajax.stats[3].base_stat
+		return result.stats[3].base_stat
 	}
 	getAbilities(result){
-		return ajax.stats[3].base_stat
+		let abilityArray = [];
+		for(let i = 0 ; i< result.abilities.length;i++){
+			abilityArray.push(result.abilities[i].ability.name)
+		}
+		return abilityArray;
 	}			
 }
 
 class Trainer{
-	constructor(){
-		this.pokemons = [];
+	constructor(pokemon1,pokemon2,pokemon3){
+		this.pokemons = [pokemon1, pokemon2, pokemon3];
 	}
 	nameAll(){
 		for(let i = 0; i<pokemons.length; i++){
@@ -52,20 +65,11 @@ class Trainer{
 	}
 }
 
+var wrapper = document.getElementById('wrapper');
+var nameDisplay = document.getElementById('nameDisplay');
 
-var pokemon = new Pokemon(9);
+// var blastoise = new Pokemon(9);
+// var kadabra = new Pokemon(64);
+// var arcanine = new Pokemon(59);
 
-
-// $.ajax({url: "https://fizal.me/pokeapi/api/59.json",
-// 		success: function(result){
-// 			arcanine = new Pokemon(result)
-// 			twin = {
-// 			name: arcanine.name,
-// 			attack: arcanine.attack,
-// 			defense: arcanine.defense,
-// 			abilities: arcanine.abilities
-// 			}
-// 		}	
-// })
-
-var ashe = new Trainer();
+// var ashe = new Trainer(blastoise, kadabra, arcanine);
