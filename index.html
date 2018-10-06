@@ -2,14 +2,55 @@
 <html>
 <head>
 	<title>Pokemon</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+	<script type="text/javascript" src="materialize-src\js\bin\materialize.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
 </head>
 <body>
-	<div id="wrapper">
-		<div id="nameDisplay"></div>
+	<div id= "header">
+		<div id="title"><h1>Ortiz's Pokemon</h1></div>
+		<div id="pokemonList">		
+			<div class="userPokemon" id="blastiose">Blastoise</div>
+			<div class="userPokemon" id="arcanine">Arcanine</div>
+			<div class="userPokemon" id="kadabra">Kadabra</div>
+		</div>
+
+	</div>
+	<div class="wrapper" id="wrapper">
+		<div id="statsWrapper">
+			<div id="generalStats">
+				<div id="type"></div>
+				<div id="stength"></div>
+				<div id="weakness"></div>
+			</div>
+			<div id="physicalStats">
+				<div id="hitpoints"></div>
+				<div id="attack"></div>
+				<div id="defense"></div>
+			</div>
+			<div id="abilities"></div>
+		</div>
+		<div id="pokedexWrapper">
+			<div id="up"></div>
+			<div id="down"></div>
+			<div id="left"></div>
+			<div id="right"></div>
+			<div id="buttonName"></div>
+			<div id="textDisplay">
+				<p id="pokemonName">Blastoise #9</p>
+				<p id="pokemonType">Water Pokemon</p>
+			</div>
+			<div id="imageDisplay"></div>
+			<div id="buttonType"></div>
+			<div id="buttonStats"></div>
+			<div id="buttonAbilities"></div>
+		</div>
 	</div>
 <!-- 9:Blastiose||64:Kadabra||59:Arcanine-->
+
+
 <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

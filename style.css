@@ -1,0 +1,104 @@
+*{
+	margin:0 0;
+}
+.wrapper{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+#header{
+	height: 20vh;
+	text-align: center;
+}
+#pokemonList{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	width: 80%;
+	margin:0 auto;
+	font-weight: bold;
+}
+#pokedexWrapper{
+	background-image: url("images/PokeDex.png");
+	background-size: 100% 100%;
+	height: 49vh;
+	width: 49vw;
+	margin: 0 auto;
+	position:relative;
+}
+#up{
+	position: absolute;
+	margin-top: 58.5%;
+	margin-left: 35.7%;
+	width: 5%;
+	height: 5.5%;
+}
+#down{
+	position: absolute;
+	margin-top: 67%;
+	margin-left: 35.7%;
+	width: 5%;
+	height: 6%;
+}
+#left{
+	position: absolute;
+	margin-top: 63%;
+	margin-left: 32%;
+	width: 5.5%;
+	height: 5.5%;
+}
+#right{
+	position: absolute;
+	margin-top: 63%;
+	margin-left: 40%;
+	width: 5%;
+	height: 5.5%;
+}
+#imageDisplay{
+	position: absolute;
+	height: 28%;
+	width: 30%;
+	margin-top: 25%;
+	margin-left: 10%;
+	background-image: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/9.png');
+	background-size: 100% 100%;
+}
+#textDisplay{
+	position: absolute;
+	height: 14.5%;
+	width: 30%;
+	margin-left: 60.7%;
+	margin-top: 27%;
+	text-align: center;
+	font-weight: bold;
+	color: white;
+}
+#pokemonName{
+	margin-top: 5%;
+}
+#buttonName{
+	position: absolute;
+	height: 7.5%;
+	width: 7.5%;
+	margin-left: 60.7%;
+	margin-top: 27%;
+}
+#buttonType{
+	position: absolute;
+	height: 7.5%;
+	width: 7.5%;
+	margin-left: 60.7%;
+	margin-top: 27%;
+}
+#buttonStats{
+	position: absolute;
+	height: 7.5%;
+	width: 7.5%;
+	margin-left: 60.7%;
+	margin-top: 27%;
+}
+#buttonAbilities{
+	position: absolute;
+	height: 7.5%;
+	width: 7.5%;
+	margin-left: 60.7%;
+	margin-top: 27%;
+}
