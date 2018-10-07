@@ -13,6 +13,14 @@
 	text-align: center;
 	position: relative;
 }
+/*.slick-arrow{
+	height: 10vh;
+	width: 10vw;
+}*/
+.slick-prev:before,
+.slick-next:before {
+    color: black;
+}
 #blastoiseImage{
 	background-image: url('images/blastoise-9.png');
 }
@@ -27,18 +35,17 @@
 	grid-template-rows: 7fr .1fr;
 }
 .pokemonImage{
+	height: 20vh;
 	background-size: 100% 100%;
 }
 .pokemonName{
 	font-weight: bold;
 	font-size: 1.7em;
 }
-#pokemonList{
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	width: 90%;
+.pokemonList{
+	width: 30%;
+	height: 25vh;
 	margin:0 auto;
-	font-weight: bold;
 }
 #pokedexWrapper{
 	background-image: url("images/PokeDex.png");
