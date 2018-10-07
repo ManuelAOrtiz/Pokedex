@@ -184,7 +184,9 @@ generalStats.addEventListener('click', function(){
 		if(generalCounter==0){
 			var type = document.createElement('DIV');
 			var strength = document.createElement('DIV');
-			var weakness = document.createElement('DIV');
+			var weakness = document.createElement('DIV');	
+			strength.innerHTML += "Strenghts: "	
+			weakness.innerHTML += "Weaknesses: "
 			for (let i = 0; i < pokemonStorage[0].types.length; i++) {
 				if(i==0){
 					type.innerHTML += "Types: "
@@ -205,7 +207,7 @@ generalStats.addEventListener('click', function(){
 								word = allPokemonTypes[j][1][x].split('');
 								word[0] = word[0].toUpperCase();
 								word = word.join('');
-								strength.innerHTML += "Strenghts: "
+
 								strength.innerHTML += " " +word+" ";
 								
 							}else{
@@ -220,7 +222,7 @@ generalStats.addEventListener('click', function(){
 								word = allPokemonTypes[j][2][y].split('');
 								word[0] = word[0].toUpperCase();
 								word = word.join('');
-								weakness.innerHTML += "Weaknesses: "
+
 								weakness.innerHTML += " "+word+" ";
 							}else{
 								word = allPokemonTypes[j][2][y].split('');
@@ -236,9 +238,21 @@ generalStats.addEventListener('click', function(){
 			generalContainer.appendChild(strength);
 			generalContainer.appendChild(weakness);
 			generalCounter++;
+			generalContainer.style.animationName = "slidedown";
+			generalContainer.style.animationDuration = ".5s";
+			generalContainer.style.animationFillMode = "forwards";
+
+			
 		}else{
-		generalContainer.innerHTML = " ";
-		generalCounter = 0;
+			generalCounter = 0;
+			physicalContainer.style.animationName = "slideup";
+			physicalContainer.style.animationDuration = ".5s";
+			physicalContainer.style.animationFillMode = "forwards";
+			setTimeout(
+				function(){
+					generalContainer.innerHTML = " ";
+				},1000)
+		
 		}
 	}
 })
@@ -262,9 +276,18 @@ physicalStats.addEventListener('click', function(){
 			physicalContainer.appendChild(attack);
 			physicalContainer.appendChild(defense);
 			physicalCounter++;
+			physicalContainer.style.animationName = "slidedown";
+			physicalContainer.style.animationDuration = ".5s";
+			physicalContainer.style.animationFillMode = "forwards";
 		}else{
-		physicalContainer.innerHTML = " ";
-		physicalCounter = 0;
+			physicalCounter = 0;
+			physicalContainer.style.animationName = "slideup";
+			physicalContainer.style.animationDuration = ".5s";
+			physicalContainer.style.animationFillMode = "forwards";
+			setTimeout(
+				function(){
+					physicalContainer.innerHTML = " ";
+				},1000)
 		}
 	}
 })
@@ -288,9 +311,18 @@ abilitiesBlueButton.addEventListener('click',function(){
 				abilitiesContainer.appendChild(info)
 			}
 			abilitiesCounter++;
+			abilitiesContainer.style.animationName = "slidedown";
+			abilitiesContainer.style.animationDuration = ".5s";
+			abilitiesContainer.style.animationFillMode = "forwards";
 		}else{
-		abilitiesContainer.innerHTML = " ";
 		abilitiesCounter = 0;
+		abilitiesContainer.style.animationName = "slideup";
+		abilitiesContainer.style.animationDuration = ".5s";
+		abilitiesContainer.style.animationFillMode = "forwards";
+		setTimeout(
+			function(){
+				abilitiesContainer.innerHTML = " "
+			},1000)		
 		}
 	}
 
@@ -312,19 +344,97 @@ submit.addEventListener('click', function(){
 	    setTimeout(function () {
         imageDisplay.style.backgroundImage = "url('"+pokemonStorage[0].sprites[1]+"')"
         getPokemonInfo(pokemonStorage[0]);    
-    }, 200);
-	    if(generalCounter!==0) {
+    }, 300);
+	    setTimeout(function(){	    
+	    	if(generalCounter!==0) {
 	    	generalContainer.innerHTML = " ";
-			generalCounter = 0;
-	    }
-	    if(physicalCounter!==0){
+	    	var type = document.createElement('DIV');
+			var strength = document.createElement('DIV');
+			var weakness = document.createElement('DIV');
+			strength.innerHTML += "Strenghts: ";
+			weakness.innerHTML += "Weaknesses: ";
+			for (let i = 0; i < pokemonStorage[0].types.length; i++) {
+				if(i==0){
+					type.innerHTML += "Types: "
+					word = pokemonStorage[0].types[i].split('');
+					word[0] = word[0].toUpperCase();
+					word = word.join('')
+					type.innerHTML += " "+word;
+				}else{
+					word = pokemonStorage[0].types[i].split('');
+					word[0] = word[0].toUpperCase();
+					word = word.join('')
+					type.innerHTML += " "+word;
+				}
+				
+				for(let j = 0; j<allPokemonTypes.length;j++){								
+
+					if(allPokemonTypes[j][0]==pokemonStorage[0].types[i]){
+						for(let x = 0; x<allPokemonTypes[j][1].length; x++){
+							if(x == 0){
+								word = allPokemonTypes[j][1][x].split('');
+								word[0] = word[0].toUpperCase();
+								word = word.join('');
+
+								strength.innerHTML += " " +word+" ";
+								
+							}else{
+								word = allPokemonTypes[j][1][x].split('');
+								word[0] = word[0].toUpperCase();
+								word = word.join('')
+								strength.innerHTML += " " +word+" ";
+							}
+						}
+						
+						for(let y = 0; y<allPokemonTypes[j][2].length; y++){
+							if(y==0){
+								word = allPokemonTypes[j][2][y].split('');
+								word[0] = word[0].toUpperCase();
+								word = word.join('');
+								
+								weakness.innerHTML += " "+word+" ";
+							}else{
+								word = allPokemonTypes[j][2][y].split('');
+								word[0] = word[0].toUpperCase();
+								word = word.join('')
+								weakness.innerHTML += " "+word+" ";
+							}
+						}
+					}
+				}
+			}
+			generalContainer.appendChild(type);
+			generalContainer.appendChild(strength);
+			generalContainer.appendChild(weakness);
+
+	    	}
+	    	if(physicalCounter!==0){
 	    	physicalContainer.innerHTML = " ";
-			physicalCounter = 0;
-	    }
-	    if(abilitiesCounter!==0){
-	    	abilitiesContainer.innerHTML = " ";
-			abilitiesCounter = 0;
-	    }
+	    	var hp = document.createElement('DIV');
+			var attack = document.createElement('DIV');
+			var defense = document.createElement('DIV');
+			hp.innerHTML= 'Health Points: '+pokemonStorage[0].hp;
+			attack.innerHTML= 'Attack: '+pokemonStorage[0].attack;
+			defense.innerHTML= 'Defense: '+pokemonStorage[0].defense;
+			physicalContainer.appendChild(hp);
+			physicalContainer.appendChild(attack);
+			physicalContainer.appendChild(defense);
+	   		}
+	    	if(abilitiesCounter!==0){
+	    		abilitiesContainer.innerHTML = " ";
+	    		for(let i = 0; i<pokemonStorage[0].abilities.length; i++){
+					var info = document.createElement('DIV');
+					var name = pokemonStorage[0].abilities[i].split("");
+					name[0] = name[0].toUpperCase();
+					name = name.join("");
+					var text = document.createTextNode(" "+(i+1)+".)"+name+" ");
+					info.appendChild(text);
+
+					abilitiesContainer.appendChild(info)
+				}
+	    	}
+		},450)
+
 	
 	
 })
