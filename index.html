@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>PokeDex</title>
-	<script type="text/javascript" src="materialize-src\js\bin\materialize.js"></script>
+	<!-- <script type="text/javascript" src="materialize-src\js\bin\materialize.js"></script> -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
 <!-- 	<link type="text/css" rel="stylesheet" href="materialize/css/materialize.css"  media="screen,projection"/> -->
@@ -46,21 +46,24 @@
 		<div id="nurseJoy"></div>
 	</div>		
 	<div id="statsWrapper">
-			<div id="generalStats">
+		<div>
+			<div class="slider" id="generalStats">
 				<p> General Stats </p>
-				<div id="type"></div>
-				<div id="stength"></div>
-				<div id="weakness"></div>
 			</div>
-			<div id="physicalStats">
+			<div id="generalContainer"></div>
+		</div>
+		<div>				
+			<div class="slider" id="physicalStats">
 				<p> Physical Stats </p>
-				<div id="hitpoints"></div>
-				<div id="attack"></div>
-				<div id="defense"></div>
 			</div>
-			<div id="abilities">
+			<div id="physicalContainer"></div>		
+		</div>
+		<div>
+			<div class="slider" id="abilities">
 				<p> Abilities </p>
 			</div>
+			<div id="abilitiesContainer"></div>
+		</div>
 	<div class="searchFooter">
 		<input type="text" id="search" placeholder="Enter Pokemon ID Number">
 		<input type="submit" id="submit">

@@ -74,8 +74,34 @@ class Trainer{
 
 	}
 }
-var imageCounter = 0;
+
+var bug = ['bug',['dark','grass','psychic'],['fire','flying','rock']];
+var dark = ['dark',['ghost','psychic'],['bug','fairy','fighting']];
+var dragon = ['dragon',['dragon'],['dragon','fairy','ice']];
+var electric =['electric',['flying','water'],['ground']];
+var fairy = ['fairy',['dark','dragon','fighting'],['posion','steel']];
+var fighting = ['fighting',['dark','ice','normal','rock','steel'],['fairy','flying','psychic']]
+var fire = ['fire',['bug','grass','ice','steel'],['ground','rock','water']];
+var flying = ['flying',['bug','fighting','grass'],['electric','ice','rock']];
+var ghost = ['ghost',['ghost','psychic'],['dark','ghost']];
+var grass = ['grass',['ground','rock','water'],['bug','fire','flying','ice','poison']];
+var ground = ['ground',['electric','fire','poison','rock','steel'],['grass','ice','water']];
+var ice = ['ice',['dragon','flying','grass','ground'],['fighting','fire','rock','steel']];
+var normal = ['normal',['none'],['fighting']];
+var poison = ['poison',['fairy','grass'],['ground','psychic']];
+var psychic = ['psychic',['fighting','poison'],['bug','dark','ghost']];
+var rock = ['rock',['bug','fire','flying','ice'],['fighting','grass','ground']]
+var water = ['water',['fire','ground','rock'],['electric','grass']];
+
+var allPokemonTypes = [bug,dark,dragon,electric,fairy,fighting,fire,flying,ghost,grass,ground,ice,normal,poison,psychic,rock,water];
+
+
+
 var pokemonStorage = [];
+
+
+
+
 var pokedexWrapper = document.getElementById('pokedexWrapper')
 var imageDisplay = document.getElementById('imageDisplay');
 var textDisplay = document.getElementById('textDisplay');
@@ -150,8 +176,132 @@ right.addEventListener('click', function(){
 })
 
 var generalStats = document.getElementById('generalStats');
+var generalContainer = document.getElementById('generalContainer');
+var generalCounter = 0;
+
+generalStats.addEventListener('click', function(){
+	if(pokemonStorage.length == 1){
+		if(generalCounter==0){
+			var type = document.createElement('DIV');
+			var strength = document.createElement('DIV');
+			var weakness = document.createElement('DIV');
+			for (let i = 0; i < pokemonStorage[0].types.length; i++) {
+				if(i==0){
+					type.innerHTML += "Types: "
+					word = pokemonStorage[0].types[i].split('');
+					word[0] = word[0].toUpperCase();
+					word = word.join('')
+					type.innerHTML += " "+word;
+				}else{
+					word = pokemonStorage[0].types[i].split('');
+					word[0] = word[0].toUpperCase();
+					word = word.join('')
+					type.innerHTML += " "+word;
+				}
+				for(let j = 0; j<allPokemonTypes.length;j++){
+					if(allPokemonTypes[j][0]==pokemonStorage[0].types[i]){
+						for(let x = 0; x<allPokemonTypes[j][1].length; x++){
+							if(x == 0){
+								word = allPokemonTypes[j][1][x].split('');
+								word[0] = word[0].toUpperCase();
+								word = word.join('');
+								strength.innerHTML += "Strenghts: "
+								strength.innerHTML += " " +word+" ";
+								
+							}else{
+								word = allPokemonTypes[j][1][x].split('');
+								word[0] = word[0].toUpperCase();
+								word = word.join('')
+								strength.innerHTML += " " +word+" ";
+							}
+						}
+						for(let y = 0; y<allPokemonTypes[j][2].length; y++){
+							if(y==0){
+								word = allPokemonTypes[j][2][y].split('');
+								word[0] = word[0].toUpperCase();
+								word = word.join('');
+								weakness.innerHTML += "Weaknesses: "
+								weakness.innerHTML += " "+word+" ";
+							}else{
+								word = allPokemonTypes[j][2][y].split('');
+								word[0] = word[0].toUpperCase();
+								word = word.join('')
+								weakness.innerHTML += " "+word+" ";
+							}
+						}
+					}
+				}
+			}
+			generalContainer.appendChild(type);
+			generalContainer.appendChild(strength);
+			generalContainer.appendChild(weakness);
+			generalCounter++;
+		}else{
+		generalContainer.innerHTML = " ";
+		generalCounter = 0;
+		}
+	}
+})
+
+
+
 var physicalStats = document.getElementById('physicalStats');
-var statsAbilities = document.getElementById( 'abilities');
+var physicalContainer = document.getElementById('physicalContainer');
+var physicalCounter = 0;
+
+physicalStats.addEventListener('click', function(){
+	if(pokemonStorage.length == 1){
+		if(physicalCounter==0){
+			var hp = document.createElement('DIV');
+			var attack = document.createElement('DIV');
+			var defense = document.createElement('DIV');
+			hp.innerHTML= 'Health Points: '+pokemonStorage[0].hp;
+			attack.innerHTML= 'Attack: '+pokemonStorage[0].attack;
+			defense.innerHTML= 'Defense: '+pokemonStorage[0].defense;
+			physicalContainer.appendChild(hp);
+			physicalContainer.appendChild(attack);
+			physicalContainer.appendChild(defense);
+			physicalCounter++;
+		}else{
+		physicalContainer.innerHTML = " ";
+		physicalCounter = 0;
+		}
+	}
+})
+
+
+var abilitiesBlueButton = document.getElementById( 'abilities');
+var abilitiesContainer = document.getElementById('abilitiesContainer');
+var abilitiesCounter = 0;
+
+abilitiesBlueButton.addEventListener('click',function(){
+	if(pokemonStorage.length == 1){
+		if(abilitiesCounter==0){
+			for(let i = 0; i<pokemonStorage[0].abilities.length; i++){
+				var info = document.createElement('DIV');
+				var name = pokemonStorage[0].abilities[i].split("");
+				name[0] = name[0].toUpperCase();
+				name = name.join("");
+				var text = document.createTextNode(" "+(i+1)+".)"+name+" ");
+				info.appendChild(text);
+
+				abilitiesContainer.appendChild(info)
+			}
+			abilitiesCounter++;
+		}else{
+		abilitiesContainer.innerHTML = " ";
+		abilitiesCounter = 0;
+		}
+	}
+
+})
+
+
+
+
+
+
+
 
 
 var search = document.getElementById('search');
@@ -163,6 +313,18 @@ submit.addEventListener('click', function(){
         imageDisplay.style.backgroundImage = "url('"+pokemonStorage[0].sprites[1]+"')"
         getPokemonInfo(pokemonStorage[0]);    
     }, 200);
+	    if(generalCounter!==0) {
+	    	generalContainer.innerHTML = " ";
+			generalCounter = 0;
+	    }
+	    if(physicalCounter!==0){
+	    	physicalContainer.innerHTML = " ";
+			physicalCounter = 0;
+	    }
+	    if(abilitiesCounter!==0){
+	    	abilitiesContainer.innerHTML = " ";
+			abilitiesCounter = 0;
+	    }
 	
 	
 })
@@ -226,6 +388,12 @@ function changePokemonImage(pokemon){
 		imageDisplay.style.backgroundImage = "url('"+pokemonStorage[0].sprites[imageCounter]+"')"
 	}
 }
+
+
+
+
+
+
 
 
 //var blastoise = new Pokemon(9);
