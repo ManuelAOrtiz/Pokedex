@@ -295,15 +295,15 @@ body{
     }
 
     #generalContainer{
-    	top: 60%;
+    	top: 97.5%;
     	width: 25.4vw;
     }
     #physicalContainer{
-    	top: 60%;
+    	top: 97.5%;
     	width: 25.4vw;
     }
     #abilitiesContainer{
-    	top: 60%;
+    	top: 97.5%;
     	width: 25.4vw;
     }
 }
