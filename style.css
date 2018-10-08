@@ -1,5 +1,9 @@
 *{
 	margin:0;
+	max-width: 915px;
+}
+body{
+	margin:0 auto;
 }
 .wrapper{
 	display: grid;
@@ -50,6 +54,10 @@
 #pokedexWrapper{
 	background-image: url("images/PokeDex.png");
 	background-size: 100% 100%;
+	max-width: 563px;
+	max-height:385px;
+	min-height:390px;
+	min-width: 421px;
 	height: 51vh;
 	width: 51vw;
 	margin: 0 auto;
@@ -155,8 +163,7 @@
 }
 .searchFooter{
 	width: 90%;
-	position: absolute;
-	bottom: 0;
+	margin-top: 1%;
 	text-align: center;
 	display: grid; 
 	grid-template-columns:1fr 1fr .5fr 1fr;
@@ -169,6 +176,7 @@
 	width: 90%;
 	margin: 0 auto;
 	margin-top: 2%;
+	margin-bottom: 15%;
 }
 #generalStats{
 	border-radius: 5px;
@@ -237,26 +245,85 @@
 }
 #generalContainer {
     position: absolute;
-    width: 27.1vw;
     background: lightblue;
-    top: 87.8%;
     font-size: 0;
+    max-width: 249px;
 }
 #physicalContainer {
     position: absolute;
-    width: 27.1vw;
     background: lightblue;
-    top: 87.8%;
     font-size: 0;
+    max-width: 249px;
 }
 #abilitiesContainer {
     position: absolute;
-    width: 27.1vw;
+    max-width: 249px;
     background: lightblue;
-    top: 87.8%;
     font-size: 0;
 }
+@media only screen and (min-width: 426px) and (max-width: 768px){
+	#generalContainer{
+    	top: 104%;
+    	width: 26.8vw;
+    }
+    #physicalContainer{
+    	top: 104%;
+    	width: 26.8vw;
+    }
+	#abilitiesContainer{
+    	top: 104%;
+    	width: 26.8vw;
+    }
+}
+@media only screen and (min-width: 769px) and (max-width: 1025px){
+	#generalContainer{
+    	top: 105.4%;
+    	width: 26.8vw;
+    }
+    #physicalContainer{
+    	top: 105.4%;
+    	width: 26.8vw;
+    }    
+    #abilitiesContainer{
+    	top: 105.4%;
+    	width: 26.8vw;
+    }
+}
+@media only screen and (min-width: 1026px){
+    #header{
+    	margin:1% auto;
+    }
 
+    #generalContainer{
+    	top: 60%;
+    	width: 25.4vw;
+    }
+    #physicalContainer{
+    	top: 60%;
+    	width: 25.4vw;
+    }
+    #abilitiesContainer{
+    	top: 60%;
+    	width: 25.4vw;
+    }
+}
+@media only screen and (max-width: 426px){
+    #header{
+    	margin-bottom: 9%;
+    }
+    #generalContainer{
+    	top: 105%;
+    	width: 25.4vw;
+    }
+    #physicalContainer{
+    	top: 105%;
+    	width: 25.4vw;
+    }
+    #abilitiesContainer{
+    	top: 105%;
+    	width: 25.4vw;
+    }
+}
 
 @keyframes slidedown {
   0%   { height: 0;}
