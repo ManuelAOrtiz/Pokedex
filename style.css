@@ -264,15 +264,15 @@ body{
 }
 @media only screen and (min-width: 426px) and (max-width: 768px){
 	#generalContainer{
-    	top: 104%;
+    	top: 90%;
     	width: 26.8vw;
     }
     #physicalContainer{
-    	top: 104%;
+    	top: 90%;
     	width: 26.8vw;
     }
 	#abilitiesContainer{
-    	top: 104%;
+    	top: 90%;
     	width: 26.8vw;
     }
 }
